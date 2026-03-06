@@ -1,28 +1,25 @@
-/* Temel Ayarlar */
 * {
-    box-sizing: border-box; /* Padding ve border değerlerini genişliğe dahil eder */
+    box-sizing: border-box;
 }
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f2f8; /* Görseldeki hafif mavimsi gri arka plan */
+    background-color: #f0f2f8;
     margin: 0;
     padding: 40px 20px;
 }
 
-/* Ana Taşıyıcı Kutu (Kart Görünümü) */
 .container {
     max-width: 1000px;
     margin: 0 auto;
     background-color: #ffffff;
     border: 1px solid #dcdcdc;
     border-radius: 6px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.03); /* Çok hafif bir gölge */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
 }
 
-/* --- Header ve Menü --- */
 header {
-    display: flex; /* Başlık ve menüyü aynı hizaya (sağ-sol) getirir */
+    display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 30px;
@@ -40,7 +37,7 @@ nav ul {
     padding: 0;
     margin: 0;
     display: flex;
-    gap: 10px; /* Butonlar arası boşluk */
+    gap: 10px;
 }
 
 nav a {
@@ -53,11 +50,10 @@ nav a {
 
 nav a:hover,
 nav a.active {
-    background-color: #8496c8; /* Görseldeki mavi buton rengi */
+    background-color: #8496c8;
     color: white;
 }
 
-/* --- Ana İçerik Alanı --- */
 .intro {
     padding: 20px 30px;
     margin: 0;
@@ -65,16 +61,14 @@ nav a.active {
     line-height: 1.6;
 }
 
-/* Yan Yana Kutu Taşıyıcısı */
 .row {
-    display: flex; /* Kutuları yan yana dizer */
-    gap: 20px; /* Kutular arasına boşluk koyar */
+    display: flex;
+    gap: 20px;
     padding: 0 30px 30px 30px;
 }
 
-/* Kutu Ortak Özellikleri */
 .content, .sidebar {
-    flex: 1; /* İki kutunun da eşit genişlikte (%50-%50) olmasını sağlar */
+    flex: 1;
     padding: 20px;
     border-radius: 6px;
 }
@@ -84,7 +78,7 @@ nav a.active {
     margin-bottom: 15px;
     font-size: 20px;
     color: #333;
-    border-bottom: 1px solid rgba(0,0,0,0.05); /* Başlıkların altına hafif çizgi */
+    border-bottom: 1px solid rgba(0,0,0,0.05);
     padding-bottom: 10px;
 }
 
@@ -99,18 +93,16 @@ nav a.active {
     margin-bottom: 0;
 }
 
-/* Kutu Özel Renkleri */
 .content {
-    background-color: #fdf6e3; /* Sarımsı arka plan */
+    background-color: #fdf6e3;
     border: 1px solid #e8dcb8;
 }
 
 .sidebar {
-    background-color: #eaf4fb; /* Mavimsi arka plan */
+    background-color: #eaf4fb;
     border: 1px solid #c9dff0;
 }
 
-/* --- Footer --- */
 footer {
     text-align: center;
     padding: 20px;
