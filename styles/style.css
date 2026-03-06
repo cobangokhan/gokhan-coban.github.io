@@ -1,87 +1,127 @@
-body{
-font-family: Arial, sans-serif;
-background-color:#f4f4f4;
-margin:0;
+/* Temel Ayarlar */
+* {
+    box-sizing: border-box; /* Padding ve border değerlerini genişliğe dahil eder */
 }
 
-/* header */
-
-header{
-background:#e6e6e6;
-text-align:center;
-padding:20px;
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f8; /* Görseldeki hafif mavimsi gri arka plan */
+    margin: 0;
+    padding: 40px 20px;
 }
 
-/* menu */
-
-nav ul{
-list-style:none;
-padding:0;
+/* Ana Taşıyıcı Kutu (Kart Görünümü) */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border: 1px solid #dcdcdc;
+    border-radius: 6px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.03); /* Çok hafif bir gölge */
 }
 
-nav ul li{
-display:inline-block;
-margin:10px;
+/* --- Header ve Menü --- */
+header {
+    display: flex; /* Başlık ve menüyü aynı hizaya (sağ-sol) getirir */
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    border-bottom: 1px solid #e0e0e0;
 }
 
-nav a{
-text-decoration:none;
-padding:8px 15px;
-border:1px solid gray;
-color:black;
+header h1 {
+    margin: 0;
+    font-size: 24px;
+    color: #333;
 }
 
-nav a:hover{
-background:#4a90e2;
-color:white;
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 10px; /* Butonlar arası boşluk */
 }
 
-/* ana alan */
-
-main{
-width:80%;
-margin:auto;
-margin-top:20px;
+nav a {
+    text-decoration: none;
+    padding: 8px 16px;
+    color: #555;
+    border-radius: 4px;
+    font-size: 15px;
 }
 
-/* içerik */
-
-.content{
-width:60%;
-display:inline-block;
-vertical-align:top;
-background:#f7e3b5;
-padding:20px;
-border:1px solid #ccc;
+nav a:hover,
+nav a.active {
+    background-color: #8496c8; /* Görseldeki mavi buton rengi */
+    color: white;
 }
 
-/* yan bilgi */
-
-.sidebar{
-width:35%;
-display:inline-block;
-vertical-align:top;
-background:#cfe2f3;
-padding:20px;
-border:1px solid #ccc;
-margin-left:2%;
+/* --- Ana İçerik Alanı --- */
+.intro {
+    padding: 20px 30px;
+    margin: 0;
+    color: #555;
+    line-height: 1.6;
 }
 
-/* metin düzenleme */
-
-.content p,
-.sidebar p{
-font-size:16px;
-line-height:1.6;
-text-align:justify;
-color:#333;
+/* Yan Yana Kutu Taşıyıcısı */
+.row {
+    display: flex; /* Kutuları yan yana dizer */
+    gap: 20px; /* Kutular arasına boşluk koyar */
+    padding: 0 30px 30px 30px;
 }
 
-/* footer */
+/* Kutu Ortak Özellikleri */
+.content, .sidebar {
+    flex: 1; /* İki kutunun da eşit genişlikte (%50-%50) olmasını sağlar */
+    padding: 20px;
+    border-radius: 6px;
+}
 
-footer{
-text-align:center;
-margin-top:30px;
-padding:15px;
-background:#ddd;
+.content h2, .sidebar h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 20px;
+    color: #333;
+    border-bottom: 1px solid rgba(0,0,0,0.05); /* Başlıkların altına hafif çizgi */
+    padding-bottom: 10px;
+}
+
+.content p, .sidebar p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #444;
+    margin-bottom: 15px;
+}
+
+.content p:last-child, .sidebar p:last-child {
+    margin-bottom: 0;
+}
+
+/* Kutu Özel Renkleri */
+.content {
+    background-color: #fdf6e3; /* Sarımsı arka plan */
+    border: 1px solid #e8dcb8;
+}
+
+.sidebar {
+    background-color: #eaf4fb; /* Mavimsi arka plan */
+    border: 1px solid #c9dff0;
+}
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #f4f5f9;
+    border-top: 1px solid #e0e0e0;
+    color: #777;
+    font-size: 14px;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+footer p {
+    margin: 0;
 }
