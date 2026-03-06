@@ -1,1 +1,87 @@
+body{
+font-family: Arial, sans-serif;
+background-color:#f4f4f4;
+margin:0;
+}
 
+/* header */
+
+header{
+background:#e6e6e6;
+text-align:center;
+padding:20px;
+}
+
+/* menu */
+
+nav ul{
+list-style:none;
+padding:0;
+}
+
+nav ul li{
+display:inline-block;
+margin:10px;
+}
+
+nav a{
+text-decoration:none;
+padding:8px 15px;
+border:1px solid gray;
+color:black;
+}
+
+nav a:hover{
+background:#4a90e2;
+color:white;
+}
+
+/* ana alan */
+
+main{
+width:80%;
+margin:auto;
+margin-top:20px;
+}
+
+/* içerik */
+
+.content{
+width:60%;
+display:inline-block;
+vertical-align:top;
+background:#f7e3b5;
+padding:20px;
+border:1px solid #ccc;
+}
+
+/* yan bilgi */
+
+.sidebar{
+width:35%;
+display:inline-block;
+vertical-align:top;
+background:#cfe2f3;
+padding:20px;
+border:1px solid #ccc;
+margin-left:2%;
+}
+
+/* metin düzenleme */
+
+.content p,
+.sidebar p{
+font-size:16px;
+line-height:1.6;
+text-align:justify;
+color:#333;
+}
+
+/* footer */
+
+footer{
+text-align:center;
+margin-top:30px;
+padding:15px;
+background:#ddd;
+}
