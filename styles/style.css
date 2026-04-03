@@ -353,10 +353,11 @@ p {
 }
 
 .badge-free {
-    top: 25px;
-    left: 25px;
+    top: 135px;
+    left: 20px;
     background-color: #fef08a;
     color: #854d0e;
+    z-index: 15;
 }
 
 .badge-date {
@@ -371,7 +372,7 @@ p {
     right: 25px;
     background-color: #ffedd5;
     color: #9a3412;
-    animation: float 3s ease-in-out infinite;
+    animation: float 3s ease-in-out infinite; 
 }
 
 .badge-location {
