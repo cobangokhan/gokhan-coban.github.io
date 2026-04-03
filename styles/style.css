@@ -371,6 +371,7 @@ p {
     right: 25px;
     background-color: #ffedd5;
     color: #9a3412;
+    animation: float 3s ease-in-out infinite;
 }
 
 .badge-location {
@@ -383,7 +384,6 @@ p {
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     font-weight: 500;
     z-index: 10; 
-    animation: float 3s ease-in-out infinite; 
 }
 
 @keyframes float {
