@@ -254,11 +254,11 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    position: relative;
+    position: relative; 
 }
 
 .back-btn {
-    position: absolute;
+    position: absolute; 
     top: 30px;
     left: 30px;
     background-color: #2563eb;
@@ -267,28 +267,28 @@ body {
     padding: 12px 20px;
     border-radius: 8px;
     font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    cursor: pointer; 
+    transition: background-color 0.3s ease, transform 0.2s ease; 
 }
 
 .back-btn:hover {
     background-color: #1d4ed8;
-    transform: translateY(-2px);
+    transform: translateY(-2px); 
 }
 
 .back-btn:active {
-    transform: translateY(1px);
+    transform: translateY(1px); 
 }
 
 .card-container {
-    position: relative;
+    position: relative; 
     width: 90%;
-    max-width: 600px;
+    max-width: 650px; 
     background: linear-gradient(135deg, #e0dcfc 0%, #f3dbff 100%);
     border-radius: 20px;
-    padding: 80px 40px 60px 40px;
+    padding: 80px 40px 60px 40px; 
     box-shadow: 0 15px 35px rgba(0,0,0,0.05);
-    overflow: hidden;
+    overflow: hidden; 
     transition: box-shadow 0.3s ease;
 }
 
@@ -304,7 +304,7 @@ body {
     height: 250px;
     background-color: rgba(255, 255, 255, 0.4);
     border-radius: 50%;
-    z-index: 1;
+    z-index: 1; 
 }
 
 .bg-circle-2 {
@@ -315,25 +315,26 @@ body {
     height: 150px;
     background-color: rgba(255, 255, 255, 0.5);
     border-radius: 50%;
-    z-index: 2;
+    z-index: 2; 
 }
 
 .card-content {
     position: relative;
-    z-index: 3;
+    z-index: 5; 
 }
 
 h2 {
     font-size: 28px;
     margin-bottom: 20px;
     color: #111;
+    max-width: 80%; 
 }
 
 p {
     font-size: 16px;
     line-height: 1.6;
     color: #444;
-    max-width: 400px;
+    max-width: 55%; 
 }
 
 .badge {
@@ -342,13 +343,13 @@ p {
     border-radius: 8px;
     font-size: 14px;
     font-weight: 600;
-    z-index: 4;
-    cursor: pointer;
+    z-index: 10; 
+    cursor: pointer; 
     transition: transform 0.3s;
 }
 
 .badge:hover {
-    transform: scale(1.1);
+    transform: scale(1.1); 
 }
 
 .badge-free {
@@ -374,15 +375,15 @@ p {
 
 .badge-location {
     position: absolute;
-    bottom: 80px;
-    right: 40px;
+    top: 150px; 
+    right: 30px; 
     background-color: white;
     padding: 12px 20px;
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     font-weight: 500;
-    z-index: 5;
-    animation: float 3s ease-in-out infinite;
+    z-index: 10; 
+    animation: float 3s ease-in-out infinite; 
 }
 
 @keyframes float {
@@ -392,7 +393,7 @@ p {
 }
 
 .help-btn {
-    position: fixed;
+    position: fixed; 
     bottom: 30px;
     right: 30px;
     background-color: #7c3aed;
@@ -403,13 +404,13 @@ p {
     font-size: 16px;
     font-weight: bold;
     box-shadow: 0 5px 15px rgba(124, 58, 237, 0.4);
-    cursor: pointer;
+    cursor: pointer; 
     transition: all 0.3s ease;
 }
 
 .help-btn:hover {
     background-color: #6d28d9;
-    transform: scale(1.05);
+    transform: scale(1.05); 
 }
 
 footer {
