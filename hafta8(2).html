@@ -1,111 +1,275 @@
-<script>
-  function birimAdiGetir(kod) {
-    switch (kod) {
-      case "m": return "Metre";
-      case "km": return "Kilometre";
-      case "cm": return "Santimetre";
-      case "c": return "Celsius";
-      case "f": return "Fahrenheit";
-      case "kg": return "Kilogram";
-      case "g": return "Gram";
-      default: return "";
-    }
-  }
-
-  function hedefleriGuncelle() {
-    const kaynakBirim = document.getElementById("kaynakBirim").value;
-    const hedefBirim = document.getElementById("hedefBirim");
-
-    let secenekler = [];
-
-    switch (kaynakBirim) {
-      case "m":
-        secenekler = [
-          { value: "km", text: "Kilometre" },
-          { value: "cm", text: "Santimetre" }
-        ];
-        break;
-      case "km":
-        secenekler = [
-          { value: "m", text: "Metre" },
-          { value: "cm", text: "Santimetre" }
-        ];
-        break;
-      case "cm":
-        secenekler = [
-          { value: "m", text: "Metre" },
-          { value: "km", text: "Kilometre" }
-        ];
-        break;
-      case "c":
-        secenekler = [
-          { value: "f", text: "Fahrenheit" }
-        ];
-        break;
-      case "f":
-        secenekler = [
-          { value: "c", text: "Celsius" }
-        ];
-        break;
-      case "kg":
-        secenekler = [
-          { value: "g", text: "Gram" }
-        ];
-        break;
-      case "g":
-        secenekler = [
-          { value: "kg", text: "Kilogram" }
-        ];
-        break;
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Birim Dönüştürücü</title>
+  <style>
+    * {
+      box-sizing: border-box;
     }
 
-    hedefBirim.innerHTML = "";
-
-    secenekler.forEach(function(secenek) {
-      const option = document.createElement("option");
-      option.value = secenek.value;
-      option.textContent = secenek.text;
-      hedefBirim.appendChild(option);
-    });
-  }
-
-  function hesapla() {
-    const deger = parseFloat(document.getElementById("deger").value);
-    const kaynak = document.getElementById("kaynakBirim").value;
-    const hedef = document.getElementById("hedefBirim").value;
-    const sonucAlani = document.getElementById("sonucAlani");
-
-    if (isNaN(deger)) {
-      sonucAlani.className = "error";
-      sonucAlani.innerHTML = "Lütfen geçerli bir sayı giriniz.";
-      return;
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f3f3f3;
+      padding: 40px;
+      position: relative;
     }
 
-    let sonuc;
-
-    if (kaynak === "m" && hedef === "km") sonuc = deger / 1000;
-    else if (kaynak === "m" && hedef === "cm") sonuc = deger * 100;
-    else if (kaynak === "km" && hedef === "m") sonuc = deger * 1000;
-    else if (kaynak === "km" && hedef === "cm") sonuc = deger * 100000;
-    else if (kaynak === "cm" && hedef === "m") sonuc = deger / 100;
-    else if (kaynak === "cm" && hedef === "km") sonuc = deger / 100000;
-    else if (kaynak === "c" && hedef === "f") sonuc = (deger * 9 / 5) + 32;
-    else if (kaynak === "f" && hedef === "c") sonuc = (deger - 32) * 5 / 9;
-    else if (kaynak === "kg" && hedef === "g") sonuc = deger * 1000;
-    else if (kaynak === "g" && hedef === "kg") sonuc = deger / 1000;
-    else {
-      sonucAlani.className = "error";
-      sonucAlani.innerHTML = "Geçersiz dönüşüm.";
-      return;
+    .geri-link {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      color: #1f3c88;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
     }
 
-    const kaynakAd = birimAdiGetir(kaynak);
-    const hedefAd = birimAdiGetir(hedef);
-    const formatliSonuc = parseFloat(sonuc.toFixed(3));
+    .geri-link:hover {
+      text-decoration: underline;
+    }
 
-    sonucAlani.className = "result";
-    sonucAlani.innerHTML = `${deger} ${kaynakAd} = ${formatliSonuc} ${hedefAd}`;
-  }
+    .wrapper {
+      max-width: 1200px;
+      margin: 60px auto 0 auto;
+    }
 
-  hedefleriGuncelle();
-</script>
+    .cards {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      padding: 30px;
+      flex: 1;
+      min-width: 320px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .card h2 {
+      font-size: 42px;
+      margin-top: 0;
+      margin-bottom: 25px;
+    }
+
+    label {
+      display: block;
+      font-size: 22px;
+      margin-bottom: 10px;
+      margin-top: 15px;
+    }
+
+    input, select, button {
+      width: 100%;
+      padding: 14px;
+      font-size: 22px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      margin-bottom: 10px;
+    }
+
+    .select-row {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .select-box {
+      flex: 1;
+      min-width: 220px;
+    }
+
+    button {
+      background-color: #0d6efd;
+      color: white;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background-color: #0b5ed7;
+    }
+
+    .result {
+      margin-top: 20px;
+      background-color: #dff0df;
+      padding: 18px;
+      border-radius: 6px;
+      font-size: 28px;
+      font-weight: bold;
+      text-align: center;
+      min-height: 70px;
+    }
+
+    .error {
+      margin-top: 20px;
+      background-color: #f8d7da;
+      color: #842029;
+      padding: 18px;
+      border-radius: 6px;
+      font-size: 22px;
+      text-align: center;
+      font-weight: bold;
+      min-height: 70px;
+    }
+  </style>
+</head>
+<body>
+  <a href="index.html" class="geri-link">Ana Sayfaya Geri Dön</a>
+
+  <div class="wrapper">
+    <div class="cards">
+      <div class="card">
+        <h2>Birim Dönüştürücü</h2>
+
+        <label for="deger">Değer Giriniz:</label>
+        <input type="number" id="deger" placeholder="Değer giriniz">
+
+        <div class="select-row">
+          <div class="select-box">
+            <label for="kaynakBirim">Kaynak Birim:</label>
+            <select id="kaynakBirim" onchange="hedefleriGuncelle()">
+              <option value="m">Metre</option>
+              <option value="km">Kilometre</option>
+              <option value="cm">Santimetre</option>
+              <option value="c">Celsius</option>
+              <option value="f">Fahrenheit</option>
+              <option value="kg">Kilogram</option>
+              <option value="g">Gram</option>
+            </select>
+          </div>
+
+          <div class="select-box">
+            <label for="hedefBirim">Hedef Birim:</label>
+            <select id="hedefBirim"></select>
+          </div>
+        </div>
+
+        <button onclick="hesapla()">Hesapla</button>
+
+        <div id="sonucAlani" class="result"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function birimAdiGetir(kod) {
+      switch (kod) {
+        case "m": return "Metre";
+        case "km": return "Kilometre";
+        case "cm": return "Santimetre";
+        case "c": return "Celsius";
+        case "f": return "Fahrenheit";
+        case "kg": return "Kilogram";
+        case "g": return "Gram";
+        default: return "";
+      }
+    }
+
+    function hedefleriGuncelle() {
+      const kaynakBirim = document.getElementById("kaynakBirim").value;
+      const hedefBirim = document.getElementById("hedefBirim");
+
+      let secenekler = [];
+
+      switch (kaynakBirim) {
+        case "m":
+          secenekler = [
+            { value: "km", text: "Kilometre" },
+            { value: "cm", text: "Santimetre" }
+          ];
+          break;
+        case "km":
+          secenekler = [
+            { value: "m", text: "Metre" },
+            { value: "cm", text: "Santimetre" }
+          ];
+          break;
+        case "cm":
+          secenekler = [
+            { value: "m", text: "Metre" },
+            { value: "km", text: "Kilometre" }
+          ];
+          break;
+        case "c":
+          secenekler = [
+            { value: "f", text: "Fahrenheit" }
+          ];
+          break;
+        case "f":
+          secenekler = [
+            { value: "c", text: "Celsius" }
+          ];
+          break;
+        case "kg":
+          secenekler = [
+            { value: "g", text: "Gram" }
+          ];
+          break;
+        case "g":
+          secenekler = [
+            { value: "kg", text: "Kilogram" }
+          ];
+          break;
+      }
+
+      hedefBirim.innerHTML = "";
+
+      secenekler.forEach(function(secenek) {
+        const option = document.createElement("option");
+        option.value = secenek.value;
+        option.textContent = secenek.text;
+        hedefBirim.appendChild(option);
+      });
+    }
+
+    function hesapla() {
+      const deger = parseFloat(document.getElementById("deger").value);
+      const kaynak = document.getElementById("kaynakBirim").value;
+      const hedef = document.getElementById("hedefBirim").value;
+      const sonucAlani = document.getElementById("sonucAlani");
+
+      if (isNaN(deger)) {
+        sonucAlani.className = "error";
+        sonucAlani.innerHTML = "Lütfen geçerli bir sayı giriniz.";
+        return;
+      }
+
+      let sonuc;
+
+      if (kaynak === "m" && hedef === "km") sonuc = deger / 1000;
+      else if (kaynak === "m" && hedef === "cm") sonuc = deger * 100;
+      else if (kaynak === "km" && hedef === "m") sonuc = deger * 1000;
+      else if (kaynak === "km" && hedef === "cm") sonuc = deger * 100000;
+      else if (kaynak === "cm" && hedef === "m") sonuc = deger / 100;
+      else if (kaynak === "cm" && hedef === "km") sonuc = deger / 100000;
+      else if (kaynak === "c" && hedef === "f") sonuc = (deger * 9 / 5) + 32;
+      else if (kaynak === "f" && hedef === "c") sonuc = (deger - 32) * 5 / 9;
+      else if (kaynak === "kg" && hedef === "g") sonuc = deger * 1000;
+      else if (kaynak === "g" && hedef === "kg") sonuc = deger / 1000;
+      else {
+        sonucAlani.className = "error";
+        sonucAlani.innerHTML = "Geçersiz dönüşüm.";
+        return;
+      }
+
+      const kaynakAd = birimAdiGetir(kaynak);
+      const hedefAd = birimAdiGetir(hedef);
+      const formatliSonuc = parseFloat(sonuc.toFixed(3));
+
+      sonucAlani.className = "result";
+      sonucAlani.innerHTML = `${deger} ${kaynakAd} = ${formatliSonuc} ${hedefAd}`;
+    }
+
+    hedefleriGuncelle();
+  </script>
+</body>
+</html>
