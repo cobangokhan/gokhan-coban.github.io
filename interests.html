@@ -1,24 +1,126 @@
 <!DOCTYPE html>
-<html>
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>İlgi Alanlarım</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #222;
+        }
+
+        header {
+            background-color: #1f3c88;
+            color: white;
+            text-align: center;
+            padding: 25px 15px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 32px;
+        }
+
+        header p {
+            margin-top: 8px;
+            font-size: 18px;
+        }
+
+        nav {
+            background-color: #163172;
+            text-align: center;
+            padding: 12px 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 0 15px;
+        }
+
+        .card {
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin-bottom: 25px;
+        }
+
+        h2 {
+            color: #1f3c88;
+            margin-top: 0;
+        }
+
+        p, li {
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        ul {
+            padding-left: 22px;
+        }
+
+        footer {
+            text-align: center;
+            background-color: #1f3c88;
+            color: white;
+            padding: 15px;
+            margin-top: 30px;
+        }
+    </style>
 </head>
 <body>
-<h1>İlgi Alanlarım</h1>
-<p>Teknoloji ve kişisel ilgi alanlarım</p><br>
-<h2>Teknoloji Alanında İlgi Alanlarım</h2>
-<p>
-  Web Geliştirme<br>
-  Java<br>
-  Mobil uygulama
-</p><br>
-<h2>İlgilendiğim Sporlar</h2>
-<p>
-  Tenis (Lisanslı)<br>
-  Futbol<br>
-  Basketbol
-</p><br>
-<a href="index.html">Ana Sayfaya Dön.</a>
+
+    <header>
+        <h1>İlgi Alanlarım</h1>
+        <p>Teknoloji ve kişisel ilgi alanlarım</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Ana Sayfa</a>
+        <a href="about.html">Hakkımda</a>
+        <a href="interests.html">İlgi Alanlarım</a>
+        <a href="contact.html">İletişim</a>
+    </nav>
+
+    <main>
+        <div class="card">
+            <h2>Teknoloji Alanında İlgi Alanlarım</h2>
+            <ul>
+                <li>Web Geliştirme</li>
+                <li>Java</li>
+                <li>Mobil Uygulama Geliştirme</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>İlgilendiğim Sporlar</h2>
+            <ul>
+                <li>Tenis (Lisanslı)</li>
+                <li>Futbol</li>
+                <li>Basketbol</li>
+            </ul>
+        </div>
+    </main>
+
+    <footer>
+        &copy; 2026 Gökhan Çoban | Web Programlama Dersi
+    </footer>
+
 </body>
 </html>
