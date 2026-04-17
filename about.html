@@ -1,31 +1,131 @@
 <!DOCTYPE html>
-<html>
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hakkımda</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #222;
+        }
+
+        header {
+            background-color: #1f3c88;
+            color: white;
+            text-align: center;
+            padding: 25px 15px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 32px;
+        }
+
+        nav {
+            background-color: #163172;
+            text-align: center;
+            padding: 12px 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            max-width: 900px;
+            margin: 30px auto;
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: #1f3c88;
+            margin-top: 25px;
+        }
+
+        p {
+            font-size: 17px;
+            line-height: 1.6;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: #1f3c88;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            background-color: #1f3c88;
+            color: white;
+            padding: 15px;
+            margin-top: 30px;
+        }
+    </style>
 </head>
 <body>
-<h2>Ben Kimim?</h2>
- <p>
-   Merhaba, ben Bilgisayar Mühendisliği öğrencisiyim. Javaya ilgi duyuyor ve geliştirmek istiyorum.<br>
-   Özellikle backend kısmı ile ilgileniyorum.
- </p><br>
- <h2>Eğitim Bilgilerim</h2>
- <p>
-   Yıldız Teknik Üniversitesi (Gıda Mühendisliği)<br>
-   Marmara Üniversitesi (Bilgisayar Mühendisliği)
- </p><br>
- <h2>Motivasyonum</h2>
- <p>
-   "İyi yazılmış bir web sitesi, hem kullanıcıyı hem geliştiriciyi mutlu eder."
- </p><br>
- <h2>Hedeflerim</h2>
- <p>
-   1.Modern web teknolokileri öğrenmek<br>
-   2.Responsive tasarım geliştirmek<br>
-   3.ASP.NET Core ile dinamik uygulamalar yazmak
- </p><br>
- <a href="index.html">Ana sayfaya geri dön</a><br>
- <footer>2026 Web Programlama Dersi</footer>
+
+    <header>
+        <h1>Hakkımda</h1>
+    </header>
+
+    <nav>
+        <a href="index.html">Ana Sayfa</a>
+        <a href="about.html">Hakkımda</a>
+        <a href="interests.html">İlgi Alanlarım</a>
+        <a href="contact.html">İletişim</a>
+    </nav>
+
+    <main>
+        <h2>Ben Kimim?</h2>
+        <p>
+            Merhaba, ben Bilgisayar Mühendisliği öğrencisiyim. Java'ya ilgi duyuyor ve bu alanda kendimi geliştirmek istiyorum.
+            Özellikle backend kısmı ile ilgileniyorum.
+        </p>
+
+        <h2>Eğitim Bilgilerim</h2>
+        <p>
+            Yıldız Teknik Üniversitesi (Gıda Mühendisliği)<br>
+            Marmara Üniversitesi (Bilgisayar Mühendisliği)
+        </p>
+
+        <h2>Motivasyonum</h2>
+        <p>
+            "İyi yazılmış bir web sitesi, hem kullanıcıyı hem geliştiriciyi mutlu eder."
+        </p>
+
+        <h2>Hedeflerim</h2>
+        <p>
+            1. Modern web teknolojileri öğrenmek<br>
+            2. Responsive tasarım geliştirmek<br>
+            3. ASP.NET Core ile dinamik uygulamalar yazmak
+        </p>
+
+        <a class="back-link" href="index.html">Ana sayfaya geri dön</a>
+    </main>
+
+    <footer>
+        &copy; 2026 Web Programlama Dersi
+    </footer>
+
 </body>
 </html>
