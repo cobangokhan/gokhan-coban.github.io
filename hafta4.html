@@ -1,10 +1,155 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Detaylı İletişim Formu</title>
-  <link rel="stylesheet" href="styles/style.css">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f2f8;
+      margin: 0;
+      padding: 40px 20px;
+    }
+
+    .contact-container {
+      width: 700px;
+      max-width: 100%;
+      margin: 60px auto 80px;
+      padding: 40px 48px;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+    }
+
+    .contact-container h2 {
+      font-size: 1.7rem;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 30px;
+      color: #222;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .input-group {
+      background: #f5f5f5;
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin-bottom: 20px;
+    }
+
+    .input-group label {
+      font-weight: normal;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+      cursor: pointer;
+    }
+
+    .input-group label:last-child {
+      margin-bottom: 0;
+    }
+
+    input[type="radio"],
+    input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      margin: 0;
+      cursor: pointer;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 12px 14px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      background: #fff;
+      color: #111;
+      outline: none;
+    }
+
+    input[type="file"] {
+      padding: 6px 0;
+      border: none;
+      background: transparent;
+      margin-bottom: 20px;
+      width: 100%;
+      font-size: 0.9rem;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: #555;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 130px;
+    }
+
+    .btn-row {
+      display: flex;
+      gap: 16px;
+      margin-top: 8px;
+    }
+
+    .btn-row button {
+      flex: 1;
+      padding: 16px;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    .btn-row button:hover {
+      opacity: 0.88;
+    }
+
+    .btn-gonder {
+      background: #1565C0;
+      color: #fff;
+    }
+
+    .btn-temizle {
+      background: #C62828;
+      color: #fff;
+    }
+
+    .success-msg {
+      display: none;
+      background: #e8f5e9;
+      border: 1px solid #a5d6a7;
+      border-radius: 6px;
+      padding: 14px;
+      color: #2e7d32;
+      font-size: 0.9rem;
+      margin-top: 16px;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
 
