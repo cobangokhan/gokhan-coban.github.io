@@ -1,1 +1,173 @@
-﻿
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Birim Dönüştürücü</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f3f3f3;
+      padding: 40px;
+    }
+
+    .wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .title {
+      font-size: 48px;
+      font-weight: bold;
+      margin-bottom: 30px;
+    }
+
+    .cards {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      padding: 30px;
+      flex: 1;
+      min-width: 320px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .card h2 {
+      font-size: 42px;
+      margin-top: 0;
+      margin-bottom: 25px;
+    }
+
+    label {
+      display: block;
+      font-size: 22px;
+      margin-bottom: 10px;
+      margin-top: 15px;
+    }
+
+    input, select, button {
+      width: 100%;
+      padding: 14px;
+      font-size: 22px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      background-color: #0d6efd;
+      color: white;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background-color: #0b5ed7;
+    }
+
+    .result {
+      margin-top: 20px;
+      background-color: #dff0df;
+      padding: 18px;
+      border-radius: 6px;
+      font-size: 28px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .error {
+      margin-top: 20px;
+      background-color: #f8d7da;
+      color: #842029;
+      padding: 18px;
+      border-radius: 6px;
+      font-size: 22px;
+      text-align: center;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="cards">
+      <div class="card">
+        <h2>Birim Dönüştürücü</h2>
+
+        <label for="deger">Değer Giriniz:</label>
+        <input type="number" id="deger" placeholder="Değer giriniz">
+
+        <label for="donusumTipi">Dönüşüm Tipi:</label>
+        <select id="donusumTipi">
+          <option value="m-km">Metre -> Kilometre</option>
+          <option value="c-f">Celsius -> Fahrenheit</option>
+          <option value="kg-g">Kilogram -> Gram</option>
+          <option value="km-m">Kilometre -> Metre</option>
+          <option value="f-c">Fahrenheit -> Celsius</option>
+          <option value="g-kg">Gram -> Kilogram</option>
+        </select>
+
+        <button onclick="hesapla()">Hesapla</button>
+
+        <div id="sonucAlani" class="result">Sonuç: </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function hesapla() {
+      const deger = parseFloat(document.getElementById("deger").value);
+      const donusumTipi = document.getElementById("donusumTipi").value;
+      const sonucAlani = document.getElementById("sonucAlani");
+
+      if (isNaN(deger)) {
+        sonucAlani.className = "error";
+        sonucAlani.innerHTML = "Lütfen geçerli bir sayı giriniz.";
+        return;
+      }
+
+      let sonuc;
+
+      switch (donusumTipi) {
+        case "m-km":
+          sonuc = deger / 1000;
+          break;
+        case "c-f":
+          sonuc = (deger * 9/5) + 32;
+          break;
+        case "kg-g":
+          sonuc = deger * 1000;
+          break;
+        case "km-m":
+          sonuc = deger * 1000;
+          break;
+        case "f-c":
+          sonuc = (deger - 32) * 5/9;
+          break;
+        case "g-kg":
+          sonuc = deger / 1000;
+          break;
+        default:
+          sonucAlani.className = "error";
+          sonucAlani.innerHTML = "Geçersiz dönüşüm tipi.";
+          return;
+      }
+
+      sonucAlani.className = "result";
+      sonucAlani.innerHTML = "Sonuç: " + sonuc.toFixed(3);
+    }
+  </script>
+</body>
+</html>
