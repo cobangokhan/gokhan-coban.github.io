@@ -1,1 +1,129 @@
-﻿
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Öğrenci Not Hesaplama</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 40px;
+      color: #111;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-size: 48px;
+      margin-bottom: 30px;
+    }
+
+    input, button {
+      width: 100%;
+      padding: 15px;
+      margin-bottom: 15px;
+      font-size: 24px;
+      border: 1px solid #999;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #e6e6e6;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background-color: #d9d9d9;
+    }
+
+    .sonuc {
+      margin-top: 30px;
+      background-color: #e9e9e9;
+      padding: 20px;
+      font-size: 22px;
+      min-height: 120px;
+    }
+
+    .sonuc h2 {
+      margin-top: 0;
+      font-size: 36px;
+    }
+
+    .hata {
+      color: red;
+      font-weight: bold;
+      margin-bottom: 15px;
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Öğrenci Not Hesaplama</h1>
+
+    <input type="text" id="adSoyad" placeholder="Ad Soyad" />
+    <input type="text" id="vize" placeholder="Vize Notu" />
+    <input type="text" id="final" placeholder="Final Notu" />
+
+    <button onclick="hesapla()">Hesapla</button>
+
+    <div id="hataMesaji" class="hata"></div>
+
+    <div class="sonuc" id="sonucAlani">
+      Sonuç burada gösterilecek.
+    </div>
+  </div>
+
+  <script>
+    function harfNotuHesapla(ortalama) {
+      if (ortalama >= 90) return "AA";
+      else if (ortalama >= 85) return "BA";
+      else if (ortalama >= 80) return "BB";
+      else if (ortalama >= 70) return "CB";
+      else if (ortalama >= 60) return "CC";
+      else if (ortalama >= 50) return "DC";
+      else if (ortalama >= 40) return "DD";
+      else return "FF";
+    }
+
+    function hesapla() {
+      let adSoyad = document.getElementById("adSoyad").value.trim();
+      let vize = parseFloat(document.getElementById("vize").value);
+      let final = parseFloat(document.getElementById("final").value);
+      let hataMesaji = document.getElementById("hataMesaji");
+      let sonucAlani = document.getElementById("sonucAlani");
+
+      hataMesaji.textContent = "";
+
+      if (adSoyad === "" || isNaN(vize) || isNaN(final)) {
+        hataMesaji.textContent = "Lütfen tüm alanları doğru şekilde doldurunuz.";
+        sonucAlani.innerHTML = "Sonuç burada gösterilecek.";
+        return;
+      }
+
+      if (vize < 0 || vize > 100 || final < 0 || final > 100) {
+        hataMesaji.textContent = "Vize ve Final notları 0 ile 100 arasında olmalıdır.";
+        sonucAlani.innerHTML = "Sonuç burada gösterilecek.";
+        return;
+      }
+
+      let ortalama = (vize * 0.4) + (final * 0.6);
+      let harfNotu = harfNotuHesapla(ortalama);
+      let durum = ortalama >= 50 ? "Geçti" : "Kaldı";
+
+      sonucAlani.innerHTML = `
+        <h2>${adSoyad}</h2>
+        <p>Ortalama: ${ortalama.toFixed(2)}</p>
+        <p>Harf Notu: ${harfNotu}</p>
+        <p>Durum: ${durum}</p>
+      `;
+    }
+  </script>
+</body>
+</html>﻿
