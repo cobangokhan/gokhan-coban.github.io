@@ -1,1 +1,447 @@
-﻿
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox Lab Uygulaması</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #eef0f6;
+            color: #333;
+        }
+
+        .wrapper {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-color: #eef0f6;
+            padding: 0 18vw;
+        }
+
+        .navbar {
+            height: 10vh;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 25px;
+            background-color: #f8f8fc;
+            border: 1px solid #d9dbe7;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #4c5265;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-direction: row;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #555b6d;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #6f9ee8;
+        }
+
+        .hero {
+            height: 30vh;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: stretch;
+            gap: 30px;
+            padding: 22px;
+            background-color: #f8f8fc;
+            border: 1px solid #d9dbe7;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .hero-text {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .hero-text h1 {
+            font-size: 30px;
+            margin-bottom: 10px;
+            color: #3e4352;
+        }
+
+        .hero-text p {
+            font-size: 17px;
+            margin-bottom: 18px;
+            color: #747987;
+        }
+
+        button {
+            border: none;
+            background-color: #6f9ee8;
+            color: white;
+            padding: 9px 30px;
+            border-radius: 5px;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #5789d8;
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            background-color: #ececf3;
+            border: 1px solid #d4d6df;
+            border-radius: 6px;
+        }
+
+        .mountain {
+            width: 90px;
+            height: 65px;
+            background-color: #d2d4df;
+            clip-path: polygon(50% 0, 100% 100%, 0 100%);
+        }
+
+        .sun {
+            width: 35px;
+            height: 35px;
+            background-color: #d2d4df;
+            border-radius: 50%;
+            position: absolute;
+            top: 35px;
+            right: 36%;
+        }
+
+        .cards-section {
+            height: 30vh;
+            display: flex;
+            flex-direction: column;
+            padding: 14px 20px;
+            background-color: #f8f8fc;
+            border: 1px solid #d9dbe7;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .section-title {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .section-title h2 {
+            font-size: 23px;
+            color: #3e4352;
+        }
+
+        .section-title span {
+            background-color: #ececf3;
+            color: #626778;
+            padding: 7px 18px;
+            border-radius: 20px;
+            font-size: 13px;
+            border: 1px solid #d8dae4;
+        }
+
+        .cards-container {
+            flex: 1;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: stretch;
+            gap: 10px;
+        }
+
+        .card {
+            width: 31%;
+            min-width: 145px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 12px;
+            background-color: white;
+            border: 1px solid #d8dae4;
+            border-radius: 7px;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .card h3 {
+            font-size: 16px;
+            color: #4a4f60;
+        }
+
+        .card p {
+            font-size: 13px;
+            color: #777d8d;
+        }
+
+        .card button {
+            align-self: center;
+            padding: 7px 25px;
+        }
+
+        .grow-section {
+            height: 20vh;
+            display: flex;
+            flex-direction: column;
+            padding: 14px 20px;
+            background-color: #f8f8fc;
+            border: 1px solid #d9dbe7;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .grow-container {
+            flex: 1;
+            display: flex;
+            flex-direction: row;
+            align-items: stretch;
+            gap: 15px;
+        }
+
+        .grow-box {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 7px;
+            border-radius: 7px;
+            border: 1px solid #d8dae4;
+        }
+
+        .grow-box h3 {
+            font-size: 19px;
+            color: #3f4655;
+        }
+
+        .grow-box p {
+            color: #566171;
+            font-size: 15px;
+        }
+
+        .box-one {
+            flex-grow: 1;
+            background-color: #e1f1ff;
+        }
+
+        .box-two {
+            flex-grow: 2;
+            background-color: #e6f5de;
+        }
+
+        .box-three {
+            flex-grow: 1;
+            background-color: #ffe8ce;
+        }
+
+        .footer {
+            height: 10vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f8f8fc;
+            border: 1px solid #d9dbe7;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .footer p {
+            color: #6d7280;
+            font-size: 17px;
+        }
+
+        @media (max-width: 900px) {
+            .wrapper {
+                height: auto;
+                min-height: 100vh;
+                padding: 2vh 5vw;
+            }
+
+            .navbar,
+            .hero,
+            .cards-section,
+            .grow-section,
+            .footer {
+                height: auto;
+                margin-bottom: 2vh;
+            }
+
+            .navbar {
+                flex-direction: column;
+                justify-content: center;
+                gap: 10px;
+                padding: 15px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero {
+                flex-direction: column;
+            }
+
+            .hero-image {
+                min-height: 180px;
+            }
+
+            .card {
+                width: 48%;
+            }
+
+            .grow-container {
+                flex-direction: column;
+            }
+
+            .grow-box {
+                min-height: 120px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .card {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="wrapper">
+
+        <nav class="navbar">
+            <div class="logo">LOGO</div>
+
+            <div class="nav-links">
+                <a href="#">Ana Sayfa</a>
+                <a href="#">Hakkında</a>
+                <a href="#">Dersler</a>
+                <a href="#">İletişim</a>
+            </div>
+        </nav>
+
+        <section class="hero">
+            <div class="hero-text">
+                <h1>Hero Başlık</h1>
+                <p>Flexbox kullanılarak hazırlanmış örnek sayfa tasarımı.</p>
+                <button>Buton</button>
+            </div>
+
+            <div class="hero-image">
+                <div class="mountain"></div>
+                <div class="sun"></div>
+            </div>
+        </section>
+
+        <section class="cards-section">
+            <div class="section-title">
+                <h2>Kartlar Bölümü</h2>
+                <span>flex-wrap</span>
+            </div>
+
+            <div class="cards-container">
+                <div class="card">
+                    <h3>Kart Başlığı</h3>
+                    <p>Kısa açıklama metni</p>
+                    <button>Buton</button>
+                </div>
+
+                <div class="card">
+                    <h3>Kart Başlığı</h3>
+                    <p>Kısa açıklama metni</p>
+                    <button>Buton</button>
+                </div>
+
+                <div class="card">
+                    <h3>Kart Başlığı</h3>
+                    <p>Kısa açıklama metni</p>
+                    <button>Buton</button>
+                </div>
+
+                <div class="card">
+                    <h3>Kart Başlığı</h3>
+                    <p>Kısa açıklama metni</p>
+                    <button>Buton</button>
+                </div>
+
+                <div class="card">
+                    <h3>Kart Başlığı</h3>
+                    <p>Kısa açıklama metni</p>
+                    <button>Buton</button>
+                </div>
+
+                <div class="card">
+                    <h3>Kart Başlığı</h3>
+                    <p>Kısa açıklama metni</p>
+                    <button>Buton</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="grow-section">
+            <div class="section-title">
+                <h2>Flex Grow Uygulama</h2>
+                <span>flex-grow: 1 - 2 - 1</span>
+            </div>
+
+            <div class="grow-container">
+                <div class="grow-box box-one">
+                    <h3>1 Kutu</h3>
+                    <p>flex-grow: 1</p>
+                    <button>Buton</button>
+                </div>
+
+                <div class="grow-box box-two">
+                    <h3>2 Kutu</h3>
+                    <p>flex-grow: 2</p>
+                    <button>Buton</button>
+                </div>
+
+                <div class="grow-box box-three">
+                    <h3>3 Kutu</h3>
+                    <p>flex-grow: 1</p>
+                    <button>Buton</button>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>© 2026 - Temel Flexbox Örneği</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
